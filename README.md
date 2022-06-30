@@ -14,15 +14,19 @@ Construir un prototipo de robot detector de fugas de gases para uso en refinerí
 ### Necesidad
 Un procedimiento usual para la identificación de fugas de gas en refinerías es el uso de diferentes tipos de sensores, por ejemplo, sensores infrarrojos que permiten detectar columnas de gas o Analizadores de Vapor Tóxico, con los cuales se miden las concentraciones de diversos gases en puntos donde se deban verificar fugas, sin embargo, estos sensores requieren de operarios para su uso, por lo que realmente no dan una retroalimentación constante de este factor de riesgo, a la vez que exponen a la persona que los opera a posibles concentraciones peligrosas de diversos gases o vapores.
 
-### Impacto buscado 
+### Efecto Esperado
 El proyecto busca diseñar una alternativa de monitoreo de posibles fugas de gas, mediante el uso de un robot capaz de patrullar una trayectoria alrededor de la cual mide constantemente la concentración de gases, permitiendo así la detección temprana de dichas fugas, además de evitar la exposición directa de personas a las mismas.
 
 Aunque el robot en sí mismo no soluciona la fuga de gas, permite obtener datos con los cuales un operario o trabajador de la planta puede prepararse para la reparación adecuadamente, minimizando al máximo posibles riesgos para su integridad.
 
 ## 3. Perifericos
-* Motores - Paralelo
 * Arduino - UART
-* Esp32 - UART
+
+<img width="250" alt="arduino" src="https://user-images.githubusercontent.com/108437348/176717523-a2db9fff-16c8-4a65-92bf-6b24baf1bb12.png">
+
+Actúa como conversor de la señal recibida en el sensor MQ2. Se encarga de recibir la señal analoga y convertirla a señal digital.
+
+
 * Seguidor de linea:
 
 <img width="250" alt="KY033" src="https://user-images.githubusercontent.com/108437348/176566935-141974bb-db18-4c46-94e1-7e05ff3942ac.png">
@@ -65,7 +69,6 @@ Para realizar la comunicación Wi-Fi, se escogió el SoC ESP32, el cual tiene in
 Este modulo bidireccional para motores, esta basado en el circuito integrado de puente H dual L298, el cual permite el control independiente, en ambos sentidos de giro, de hasta dos motores bien sea motores DC o motores paso a paso.
 
 
-
 ## 4. Mapa de memoria 
 ## 5. Explicación codigo - modulos 
 
@@ -75,8 +78,14 @@ Este modulo bidireccional para motores, esta basado en el circuito integrado de 
 
 <img width="250" alt="nexys-a7-obl-600" src="https://user-images.githubusercontent.com/108437348/176568131-23067dcc-98f9-4cbb-b73f-726cad7f492e.png">
 
-## 7. Funcionamiento
-* Control de seguidor de linea
-* Sensor de gases
-* Comunicación inalmbrica
+## 7. Desafíos
+### Durante el desarrollo:
+* Alimentacion externa - Tipo de alimentación y ajuste
+* Duración de la bateria - 2000mAh dura aproximadamente 40 minutos con carga 
+* Desarrollo de protocolos de comunicación y conversión 
+### A futuro:
+
+* Ajustar el diseño del carro para que se pueda prensar a la tubería de la compañía con la que se vaya a trabajar.
+* Reducir la vecidad del carro para que haga un escaneo completo.
+* Agregar otros sensores, lo cual haga más sensible la lectura de gases presentes.
  
