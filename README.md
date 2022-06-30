@@ -1,4 +1,8 @@
 # Gas-scape-detector-on-FPGA
+
+<img width="400" alt="detector" src="https://user-images.githubusercontent.com/108437348/176722706-d3264a1f-eaaa-4324-b12c-c3f64b6f57f4.jpeg">
+
+
 This project seeks to design an alternative method for the constant monitoring of sensitive areas of different plants, through the use of a robot that can constantly census the concentrations of gases in the environment of these areas and send this data for analysis at any time.
 
 
