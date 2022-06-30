@@ -25,27 +25,47 @@ Aunque el robot en sí mismo no soluciona la fuga de gas, permite obtener datos 
 * Esp32 - UART
 * Seguidor de linea:
 
+<img width="250" alt="KY033" src="https://user-images.githubusercontent.com/108437348/176566935-141974bb-db18-4c46-94e1-7e05ff3942ac.png">
+
 Los sensores escogidos para la función de seguimiento de línea fueron los módulos KY-033, los cuales mediante un haz concentrado de luz infrarroja, pueden detectar si la superficie que tienen justo enfrente es o no reflectante, entregando una salida digital de 1 bit, como se muestra en la siguiente tabla:
  
 <img width="250" alt="Tabla1" src="https://user-images.githubusercontent.com/108437348/176576640-2e1b4338-9aad-438f-b7ee-3a22be6fdad9.png">
 
-Adicionalmente, la sensibilidad del dispositivo puede ajustarse fácilmente mediante un potenciómetro, usado en la mayoría de los casos para modificar la distancia a la cual el dispositivo puede diferenciar satisfactoriamente entre una superficie reflectante o no reflectante.
+Adicionalmente, la sensibilidad del dispositivo puede ajustarse fácilmente mediante un potenciómetro, usado en la mayoría de los casos para modificar la distancia a la cual el dispositivo puede diferenciar satisfactoriamente entre una superficie reflectante o no reflectante. Los pines que posee el dispositivo se muestran en la siguiente tabla:
 
-<img width="250" alt="KY033" src="https://user-images.githubusercontent.com/108437348/176566935-141974bb-db18-4c46-94e1-7e05ff3942ac.png">
- 
+<img width="250" alt="tabla2" src="https://user-images.githubusercontent.com/108437348/176577990-61a70f6f-069f-467c-9215-344f16a65a31.png">
 
-<img width="250" alt="modulo L298N" src="https://user-images.githubusercontent.com/108437348/176566847-1c70fb78-549e-4451-aff2-d4e7073fe5cc.png">
+* Sensor de Gas
 
 <img width="250" alt="MQ2" src="https://user-images.githubusercontent.com/108437348/176566919-61dd6d5c-8801-4e8b-8543-65a1290e3ba5.png">
 
+Para la detección de gas se seleccionó un módulo con un sensor de la familia MQ, específicamente el MQ-2, el cual es sensible al hidrógeno molecular ($H_2$), Gas Licuado de Petróleo (GLP), Metano ($CH_4$), Monóxido de Carbono (CO), Alcohol, Humo y Propano. Se escogió este sensor, ya que permite simular su funcionamiento con gases de una zona industrial con el uso de metano, el cual puede ser conseguido y manipulado, por ejemplo, con un encendedor desechable, sin embargo, no se debe olvidar tomar medidas de seguridad.
 
+<img width="400" alt="curvaSensibilidadMQ2" src="https://user-images.githubusercontent.com/108437348/176578309-39952e01-d9c0-462d-b6b8-8a377d173791.png">
+
+La mínima cantidad que puede detectar el dispositivo es 200ppm, mientras que la máxima es alrededor de 10000ppm. La siguiente tabla contiene el orden de los pines del sensor:
+
+<img width="250" alt="tabla3" src="https://user-images.githubusercontent.com/108437348/176579104-e4f6b8fb-c8e5-4287-b9c0-bc0a85ff45a0.png">
+
+Aunque el dispositivo tiene salida digital, esta solo envía un estado alto cuando se supera un nivel de concentración determinado por el potenciómetro, por ello, para el desarrollo del proyecto y una medición adecuada de la concentración de gas en el aire, se debe usar la salida analógica, por lo que se hace necesario implementar un conversor análogo a digital, el cual es que se va a comunicar con la FPGA.
+
+
+* Comunicación Wi-Fi:
 
 <img width="250" alt="ESP-32" src="https://user-images.githubusercontent.com/108437348/176566952-9a6c523a-0d3c-4fb4-98b4-35f7710d13c4.jpg">
+ 
+Para realizar la comunicación Wi-Fi, se escogió el SoC ESP32, el cual tiene integrado un microprocesador con tecnología integrada para trabajar con Wi-Fi y Bluetooth. Este módulo facilita el envío de los datos al poderse programar para este propósito con librerías disponibles en la web, comunicándose con el procesador de la FPGA mediante UART.
+ 
+* L298N Dual H-Bridge motor driver:
 
-<img width="250" alt="nexys-a7-obl-600" src="https://user-images.githubusercontent.com/108437348/176568131-23067dcc-98f9-4cbb-b73f-726cad7f492e.png">
+<img width="250" alt="modulo L298N" src="https://user-images.githubusercontent.com/108437348/176566847-1c70fb78-549e-4451-aff2-d4e7073fe5cc.png">
 
 <img width="250" alt="motores" src="https://user-images.githubusercontent.com/108437348/176568182-6849816f-1fc4-43ea-8e1d-ca6cbcfa9f55.png">
 
+Este modulo bidireccional para motores, esta basado en el circuito integrado de puente H dual L298, el cual permite el control independiente, en ambos sentidos de giro, de hasta dos motores bien sea motores DC o motores paso a paso.
+
+
+<img width="250" alt="nexys-a7-obl-600" src="https://user-images.githubusercontent.com/108437348/176568131-23067dcc-98f9-4cbb-b73f-726cad7f492e.png">
 <img width="350" atl="diagrama cajas general" src="https://user-images.githubusercontent.com/108437348/176575029-c837ae64-28e0-492c-b1ef-f1fea796c78f.png">
 
 ## 4. Mapa de memoria 
