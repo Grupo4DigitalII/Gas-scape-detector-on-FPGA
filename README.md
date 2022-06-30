@@ -27,6 +27,13 @@ Construir un prototipo de robot detector de fugas de gases para uso en refinerí
 <img width="250" alt="ESP-32" src="https://user-images.githubusercontent.com/108437348/176566952-9a6c523a-0d3c-4fb4-98b4-35f7710d13c4.jpg">
 
 
+<img width="250" alt="nexys-a7-obl-600" src="https://user-images.githubusercontent.com/108437348/176568131-23067dcc-98f9-4cbb-b73f-726cad7f492e.png">
+
+<img width="250" alt="motores" src="https://user-images.githubusercontent.com/108437348/176568182-6849816f-1fc4-43ea-8e1d-ca6cbcfa9f55.png">
+
+
+
+
 
 
 ## 6. Funcionamiento
