@@ -65,12 +65,15 @@ Para realizar la comunicación Wi-Fi, se escogió el SoC ESP32, el cual tiene in
 Este modulo bidireccional para motores, esta basado en el circuito integrado de puente H dual L298, el cual permite el control independiente, en ambos sentidos de giro, de hasta dos motores bien sea motores DC o motores paso a paso.
 
 
-<img width="250" alt="nexys-a7-obl-600" src="https://user-images.githubusercontent.com/108437348/176568131-23067dcc-98f9-4cbb-b73f-726cad7f492e.png">
-<img width="350" atl="diagrama cajas general" src="https://user-images.githubusercontent.com/108437348/176575029-c837ae64-28e0-492c-b1ef-f1fea796c78f.png">
 
 ## 4. Mapa de memoria 
 ## 5. Explicación codigo - modulos 
+
+<img width="350" atl="diagrama cajas general" src="https://user-images.githubusercontent.com/108437348/176575029-c837ae64-28e0-492c-b1ef-f1fea796c78f.png">
+
 ## 6. Partes - Presupuesto
+
+<img width="250" alt="nexys-a7-obl-600" src="https://user-images.githubusercontent.com/108437348/176568131-23067dcc-98f9-4cbb-b73f-726cad7f492e.png">
 
 ## 7. Funcionamiento
 * Control de seguidor de linea
