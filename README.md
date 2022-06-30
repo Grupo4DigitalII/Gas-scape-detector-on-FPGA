@@ -1,4 +1,4 @@
-# Gas-scape-detector-on-FPGA
+# Gas-Scape-Detector-on-FPGA-For-Industries
 
 <img width="400" alt="detector" src="https://user-images.githubusercontent.com/108437348/176722706-d3264a1f-eaaa-4324-b12c-c3f64b6f57f4.jpeg">
 
