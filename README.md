@@ -115,7 +115,12 @@ El funcionamiento del dispositivo se puede explicar brevemente de la siguiente f
 2. Se compara si el valor supera un umbral definido en el código, de ser así, deshabilita el funcionamiento de los motores, de lo contrario se habilitan.
 3. Cada segundo se envía el dato a través del `uart1` a la ESP-32, la cual lo carga al servidor de la aplicación "Blynk" para la visualización en App móvil o web del valor en tiempo real y una gráfica donde se registra la variación de la concentración del gas en ppm.  
 
-Al superar la concentración definida como umbral, el dispositivo se detiene con el objetivo de dar tiempo al usuario final de percatarse de una posible fuga y tomar las medidas necesarias.
+Al superar la concentración definida como umbral, el dispositivo se detiene con el objetivo de dar tiempo al usuario final de percatarse de una posible fuga y tomar las medidas necesarias. La siguiente tabla muestra lo que vería el usuario del dispositivo al usar la web o la App.
+
+| Web | App |
+| --- | --- |
+|<img width="350" atl="Medición baja concentración web" src="https://user-images.githubusercontent.com/108437348/176831790-f8a33cb0-6853-43b9-a85b-7613d7351fc4.png"> <br> <img width="350" atl="Medición alta concentración web" src="https://user-images.githubusercontent.com/108437348/176833023-f918b1d2-c8e6-4f6d-b709-86ce2d9975e6.png"> | <img width="300" atl="Medición con App móvil" src="https://user-images.githubusercontent.com/108437348/176832727-0688e4dd-1a55-45f1-a456-d4145f965a47.jpg">|
+
 
 ## 6. Partes - Presupuesto
 
