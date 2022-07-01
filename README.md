@@ -76,10 +76,23 @@ Este modulo bidireccional para motores, esta basado en el circuito integrado de 
 ## 4. Mapa de memoria 
 El mapa de memoria del proyecto puede ser accedido y revisado completamente en el documento "Soc_MemoryMap.csv", que puede ser visualizado con mayor facilidad en algún programa como Excel o LibreOffice Calc, sin embargo, a continuación se presentan algunos datos importantes depositados en dicho archivo.
 
-| Periferico | Nombre | Dirección Base | Tamaño | Descripción |
-|-------------|---------|---------|----------|---------------------------|
-| Uart ESP-32 | `uart1` | 0x82004000 | 32 bits | Módulo uart usado para la comunicación con la ESP-32. |
-| Uart
+En primer lugar, se muestra el mapa de memoria de la sección de perifericos, con cada uno de los que fueron usados en el desarrollo e implementación del proyecto, adjuntando una breve descripción del uso de cada uno de ellos.
+
+| Periferico | Nombre | Dirección Base | Descripción |
+|-------------|---------|---------|----------------|
+| Driver Motores | `driverM` |  0x82001000 | Módulo controlador para los motores, creado en verilog. |
+| Uart ESP-32 | `uart1` | 0x82004000 | Módulo uart usado para la comunicación con la ESP-32. |
+| Uart Arduino | `uart2` | 0x82005000 | Módulo uart usado para la comunicación con el arduino. |
+| Uart PC | `uart` | 0x82006800 | Módulo uart que permite la comunicación con el computador, usado principalmente para pruebas. | 
+
+Se destaca de forma adicional, los registros mapeados en memoria del módulo driver del motor, con el fin de explicar su finción.
+
+| Registro | Dirección | r/w |  Descripción |
+| --- | --- | --- | --- |
+| `driverM_statusM` | 0x82001000 | ro | Permite la lectura del estado actual de los sensores de línea, y por consecuencia, de los motores. |
+| `driverM_ena` | 0x82001004 | rw | Permite habilitar o deshabilitar el movimiento de los motores al escribir en el un 0 (deshabilitar) o un 1 (habilitar). |
+
+**NOTA: El archivo verilog de este módulo se encuentra en la carpeta /module/verilog.** 
 
 
 ## 5. Explicación codigo - modulos 
