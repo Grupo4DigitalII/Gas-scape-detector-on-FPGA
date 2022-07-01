@@ -74,6 +74,10 @@ Este modulo bidireccional para motores, esta basado en el circuito integrado de 
 
 
 ## 4. Mapa de memoria 
+El mapa de memoria del proyecto puede ser accedido y revisado completamente en el documento "Soc_MemoryMap.csv", que puede ser visualizado con mayor facilidad en algún programa como Excel o LibreOffice Calc, sin embargo, a continuación se presentan algunos datos importantes depositados en dicho archivo.
+
+
+
 ## 5. Explicación codigo - modulos 
 
 <img width="350" atl="diagrama cajas general" src="https://user-images.githubusercontent.com/108437348/176575029-c837ae64-28e0-492c-b1ef-f1fea796c78f.png">
