@@ -107,7 +107,7 @@ En un primer momento, se propuso el siguiente diagrama de cajas para el Sistema 
 
 No obstante, el prototipo final se representa mejor con el siguiente diagrama:
 
-<img width="350" atl="Medición alta concentración web" src="https://user-images.githubusercontent.com/108437348/176837899-b23357de-5f57-413c-a59e-a6d82e7e8910.png"> 
+<img width="350" atl="Medición alta concentración web" src="https://user-images.githubusercontent.com/108437348/176893140-16c3b7fe-cd51-487c-80c8-8f609601e850.png"> 
 
 El funcionamiento del dispositivo se puede explicar brevemente de la siguiente forma:
 
