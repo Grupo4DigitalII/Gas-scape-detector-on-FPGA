@@ -95,11 +95,13 @@ Se destaca de forma adicional, los registros mapeados en memoria del módulo dri
 **NOTA: El archivo verilog de este módulo se encuentra en la carpeta /module/verilog.** 
 
 
-## 5. Explicación codigo - modulos
+## 5. Explicación código - modulos
 
 Previo a la explicación del sistema, se muestra un corto vídeo del dispositivo en funcionamiento, con el fin de facilitar la comprensión de esta sección.
 
 https://user-images.githubusercontent.com/108437348/176825390-9b62fde0-2165-4866-a7dd-da3f8394d124.mp4
+
+### SoC:
 
 En un primer momento, se propuso el siguiente diagrama de cajas para el Sistema en Chip ("SoC").
 
@@ -107,7 +109,17 @@ En un primer momento, se propuso el siguiente diagrama de cajas para el Sistema 
 
 No obstante, el prototipo final se representa mejor con el siguiente diagrama:
 
-<img width="350" atl="Medición alta concentración web" src="https://user-images.githubusercontent.com/108437348/176893140-16c3b7fe-cd51-487c-80c8-8f609601e850.png"> 
+<img width="350" atl="Medición alta concentración web" src="https://user-images.githubusercontent.com/108437348/176893140-16c3b7fe-cd51-487c-80c8-8f609601e850.png">
+
+### Particionamiento Hardware/Software:
+
+Para cumplir con los objetivos del proyecto, se permitía realizar las tareas mediante hardware o software, con el fin de efectuarlas de la forma más eficiente posible, con ello en mente, se presenta la siguiente partición:
+
+* Hardware: La tarea del seguimiento de línea se realiza mediante hardware, es decir, el módulo driver de los motores en verilog, debido a la facilidad y tiempo de respuesta que ofrecen los circuitos combinacionales para realizar esta tarea, quitando a su vez, carga de trabajo al procesador.
+
+* Software: Por el lado del software, se realizaron las tareas de adquisición, toma de desiciones y envío de datos, gracias a las facilidades ofrecidas por el procesador y la herrramienta Litex. 
+
+### Código FPGA:
 
 El funcionamiento del dispositivo se puede explicar brevemente de la siguiente forma:
 
@@ -121,6 +133,17 @@ Al superar la concentración definida como umbral, el dispositivo se detiene con
 | --- | --- |
 |<img width="350" atl="Medición baja concentración web" src="https://user-images.githubusercontent.com/108437348/176831790-f8a33cb0-6853-43b9-a85b-7613d7351fc4.png"> <br> <img width="350" atl="Medición alta concentración web" src="https://user-images.githubusercontent.com/108437348/176833023-f918b1d2-c8e6-4f6d-b709-86ce2d9975e6.png"> | <img width="300" atl="Medición con App móvil" src="https://user-images.githubusercontent.com/108437348/176832727-0688e4dd-1a55-45f1-a456-d4145f965a47.jpg">|
 
+### Códigos Ardunio y ESP-32:
+
+En el caso de los códigos de Arduino y de la ESP-32, se usó la librería SoftwareSerial para la comunicación UART con el SoC en la FPGA, mientras que para la ESP-32 específicamente, se usaron las librerías de la plataforma Blynk, ampliamente documentada en la web, para el envío de los datos a través de internet.
+
+Antes de pasar a la siguiente sección, se explican las dificultades encontradas en la  comunicación entre las dos tarjetas ya mencionadas y el SoC, junto con la solución implementada:
+
+* La transmisión del dato se tuvo que realizar por partes, debido a que este protocolo tiene normalmente 7 u 8 bits de datos, es decir, números enteros mayores a 255 no pueden ser enviados completos, por ello se realizaron operaciones matemáticas sencillas para enviar primero los 2 o 3 dígitos decimales más significativos primero y luego los menos significativos.
+
+* Los módulos UART tienen una memoria FIFO (First In-First Out), por lo que si algún periferico realiza envios de forma continuo, llena completamente esta memoria con datos desactualizados, entorpeciendo el desarrollo de las tareas, para ello, se programó al Arduino para medir la concentración de gas de forma continua, pero para el envío de datos, se espera la recepción de un carácter por parte de la FPGA.
+
+* Para el envío de datos a la web y la App, al igual que el Arduino, la ESP-32 espera que la FPGA envíe una bandera que indica que los siguientes dos datos que se reciban corresponden a las dos secciones que conforman la concentración de gas y solo despúes de recibirlos se ejecuta el envío de los datos a través de WiFi.
 
 ## 6. Partes - Presupuesto
 
