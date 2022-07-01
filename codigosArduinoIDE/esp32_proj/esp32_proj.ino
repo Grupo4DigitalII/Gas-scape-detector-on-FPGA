@@ -1,8 +1,8 @@
 #define BLYNK_TEMPLATE_ID "************"                      //Credenciales de Blynk.
 #define BLYNK_DEVICE_NAME "*****"                             //Deben estar al inicio.
 #define BLYNK_AUTH_TOKEN "*******************************"
-#define BLYNK_PRINT Serial
-
+#define BLYNK_PRINT Serial                                    //Imprime por el monitor Serial
+                                                              //el estado de la conexión.
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h>
