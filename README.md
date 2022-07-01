@@ -76,7 +76,7 @@ Este modulo bidireccional para motores, esta basado en el circuito integrado de 
 ## 4. Mapa de memoria 
 El mapa de memoria del proyecto puede ser accedido y revisado completamente en el documento "Soc_MemoryMap.csv", que puede ser visualizado con mayor facilidad en algún programa como Excel o LibreOffice Calc, sin embargo, a continuación se presentan algunos datos importantes depositados en dicho archivo.
 
-En primer lugar, se muestra el mapa de memoria de la sección de perifericos, con cada uno de los que fueron usados en el desarrollo e implementación del proyecto, adjuntando una breve descripción del uso de cada uno de ellos.
+En primer lugar, se muestra el mapa de memoria de la sección de perifericos, con cada uno de los que fueron usados en el desarrollo e implementación del proyecto, adjuntando una breve descripción su uso.
 
 | Periferico | Nombre | Dirección Base | Descripción |
 |-------------|---------|---------|----------------|
@@ -85,7 +85,7 @@ En primer lugar, se muestra el mapa de memoria de la sección de perifericos, co
 | Uart Arduino | `uart2` | 0x82005000 | Módulo uart usado para la comunicación con el arduino. |
 | Uart PC | `uart` | 0x82006800 | Módulo uart que permite la comunicación con el computador, usado principalmente para pruebas. | 
 
-Se destaca de forma adicional, los registros mapeados en memoria del módulo driver del motor, con el fin de explicar su finción.
+Se destaca de forma adicional, los registros mapeados en memoria del módulo driver del motor, con el fin de explicar su función.
 
 | Registro | Dirección | r/w |  Descripción |
 | --- | --- | --- | --- |
