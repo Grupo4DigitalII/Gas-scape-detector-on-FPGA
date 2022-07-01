@@ -76,9 +76,10 @@ Este modulo bidireccional para motores, esta basado en el circuito integrado de 
 ## 4. Mapa de memoria 
 El mapa de memoria del proyecto puede ser accedido y revisado completamente en el documento "Soc_MemoryMap.csv", que puede ser visualizado con mayor facilidad en algún programa como Excel o LibreOffice Calc, sin embargo, a continuación se presentan algunos datos importantes depositados en dicho archivo.
 
-| Periferico | Nombre | Tamaño | Descripción |
-|-------------|---------|---------|----------------------------------------|
-| Uart ESP-32 | `uart1` | 32 bits | Módulo uart usado para la comunicación <br>con la ESP-32 |
+| Periferico | Nombre | Dirección Base | Tamaño | Descripción |
+|-------------|---------|---------|----------|---------------------------|
+| Uart ESP-32 | `uart1` | 0x82004000 | 32 bits | Módulo uart usado para la comunicación con la ESP-32. |
+| Uart
 
 
 ## 5. Explicación codigo - modulos 
