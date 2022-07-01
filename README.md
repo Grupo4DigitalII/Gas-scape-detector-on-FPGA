@@ -78,7 +78,7 @@ El mapa de memoria del proyecto puede ser accedido y revisado completamente en e
 
 | Periferico | Nombre | Tamaño | Descripción |
 |-------------|---------|---------|----------------------------------------|
-| Uart ESP-32 | `uart1` | 32 bits | Módulo uart usado para la comunicación \con la ESP-32 |
+| Uart ESP-32 | `uart1` | 32 bits | Módulo uart usado para la comunicación <br>con la ESP-32 |
 
 
 ## 5. Explicación codigo - modulos 
