@@ -97,9 +97,25 @@ Se destaca de forma adicional, los registros mapeados en memoria del módulo dri
 
 ## 5. Explicación codigo - modulos
 
+Previo a la explicación del sistema, se muestra un corto vídeo del dispositivo en funcionamiento, con el fin de facilitar la comprensión de esta sección.
+
 https://user-images.githubusercontent.com/108437348/176825390-9b62fde0-2165-4866-a7dd-da3f8394d124.mp4
 
+En un primer momento, se propuso el siguiente diagrama de cajas para el Sistema en Chip ("SoC").
+
 <img width="350" atl="diagrama cajas general" src="https://user-images.githubusercontent.com/108437348/176575029-c837ae64-28e0-492c-b1ef-f1fea796c78f.png">
+
+No obstante, el prototipo final se representa mejor con el siguiente diagrama:
+
+
+
+El funcionamiento del dispositivo se puede explicar brevemente de la siguiente forma:
+
+1. El procesador solicita mediante el módulo `uart2` al arduino, el valor medido por el sensor de gases MQ-2.
+2. Se compara si el valor supera un umbral definido en el código, de ser así, deshabilita el funcionamiento de los motores, de lo contrario se habilitan.
+3. Cada segundo se envía el dato a través del `uart1` a la ESP-32, la cual lo carga al servidor de la aplicación "Blynk" para la visualización en App móvil o web del valor en tiempo real y una gráfica donde se registra la variación de la concentración del gas en ppm.  
+
+Al superar la concentración definida como umbral, el dispositivo se detiene con el objetivo de dar tiempo al usuario final de percatarse de una posible fuga y tomar las medidas necesarias.
 
 ## 6. Partes - Presupuesto
 
