@@ -105,6 +105,19 @@ https://user-images.githubusercontent.com/108437348/176825390-9b62fde0-2165-4866
 
 <img width="250" alt="nexys-a7-obl-600" src="https://user-images.githubusercontent.com/108437348/176568131-23067dcc-98f9-4cbb-b73f-726cad7f492e.png">
 
+| Partes | Precio aprox. |
+| ------------- | ------------- |
+| KY-033  | 14.000  |
+| MQ2 | 10.000 |
+| ESP32 | 32.000  |
+| L298N | 18.000  |
+| Ruedas| 30.000  |
+| Cables| 10.000 |
+| Base carro |8.000  |
+| Arduino | 52.000  |
+| Power bank  | 17.000 |
+
+
 ## 7. Desafíos
 ### Durante el desarrollo:
 * Alimentacion externa - Tipo de alimentación y ajuste
